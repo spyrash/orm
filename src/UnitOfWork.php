@@ -1993,13 +1993,13 @@ class UnitOfWork implements PropertyChangedListener
             throw ORMInvalidArgumentException::entityNotManaged($entity);
         }
 
+        $this->cascadeRefresh($entity, $visited, $lockMode);
+
         $this->getEntityPersister($class->name)->refresh(
             array_combine($class->getIdentifierFieldNames(), $this->entityIdentifiers[$oid]),
             $entity,
             $lockMode,
         );
-
-        $this->cascadeRefresh($entity, $visited, $lockMode);
     }
 
     /**
