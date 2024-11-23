@@ -429,14 +429,23 @@
      *                   columnDefinition?: string
      *               }]]></code>
     </MoreSpecificReturnType>
+    <RedundantCondition>
+      <code><![CDATA[$metadata->getReflectionClass()]]></code>
+    </RedundantCondition>
     <RedundantConditionGivenDocblockType>
       <code><![CDATA[assert($cacheAttribute instanceof Mapping\Cache)]]></code>
       <code><![CDATA[assert($method instanceof ReflectionMethod)]]></code>
       <code><![CDATA[assert($method instanceof ReflectionMethod)]]></code>
       <code><![CDATA[assert($property instanceof ReflectionProperty)]]></code>
     </RedundantConditionGivenDocblockType>
+    <TypeDoesNotContainNull>
+      <code><![CDATA[new ReflectionClass($metadata->name)]]></code>
+    </TypeDoesNotContainNull>
   </file>
   <file src="src/Mapping/Driver/LoadMappingFileImplementation.php">
+    <LessSpecificImplementedReturnType>
+      <code><![CDATA[array]]></code>
+    </LessSpecificImplementedReturnType>
     <MissingParamType>
       <code><![CDATA[$file]]></code>
     </MissingParamType>
@@ -495,8 +504,11 @@
   </file>
   <file src="src/Mapping/GetReflectionClassImplementation.php">
     <ImplementedReturnTypeMismatch>
-      <code><![CDATA[ReflectionClass|null]]></code>
+      <code><![CDATA[ReflectionClass]]></code>
     </ImplementedReturnTypeMismatch>
+    <InvalidNullableReturnType>
+      <code><![CDATA[ReflectionClass]]></code>
+    </InvalidNullableReturnType>
   </file>
   <file src="src/Mapping/ManyToManyInverseSideMapping.php">
     <PropertyNotSetInConstructor>
@@ -963,7 +975,6 @@
     </PossiblyNullArrayOffset>
     <PossiblyNullReference>
       <code><![CDATA[dispatch]]></code>
-      <code><![CDATA[isSubclassOf]]></code>
     </PossiblyNullReference>
   </file>
   <file src="src/QueryBuilder.php">

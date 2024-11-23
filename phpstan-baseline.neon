@@ -126,6 +126,11 @@ parameters:
 			path: src/Mapping/ClassMetadataFactory.php
 
 		-
+			message: "#^Expression on left side of \\?\\? is not nullable\\.$#"
+			count: 1
+			path: src/Mapping/Driver/AttributeDriver.php
+
+		-
 			message: "#^Method Doctrine\\\\ORM\\\\Mapping\\\\ToOneOwningSideMapping\\:\\:fromMappingArray\\(\\) should return static\\(Doctrine\\\\ORM\\\\Mapping\\\\ToOneOwningSideMapping\\) but returns Doctrine\\\\ORM\\\\Mapping\\\\ManyToOneAssociationMapping\\|Doctrine\\\\ORM\\\\Mapping\\\\OneToOneOwningSideMapping\\.$#"
 			count: 1
 			path: src/Mapping/ToOneOwningSideMapping.php

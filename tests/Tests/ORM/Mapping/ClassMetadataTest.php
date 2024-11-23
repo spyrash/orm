@@ -6,6 +6,7 @@ namespace Doctrine\Tests\ORM\Mapping;
 
 use ArrayObject;
 use Doctrine\DBAL\Types\Types;
+use Doctrine\Deprecations\PHPUnit\VerifyDeprecations;
 use Doctrine\ORM\Events;
 use Doctrine\ORM\Mapping\ChainTypedFieldMapper;
 use Doctrine\ORM\Mapping\ClassMetadata;
@@ -70,6 +71,8 @@ require_once __DIR__ . '/../../Models/Global/GlobalNamespaceModel.php';
 
 class ClassMetadataTest extends OrmTestCase
 {
+    use VerifyDeprecations;
+
     public function testClassMetadataInstanceSerialization(): void
     {
         $cm = new ClassMetadata(CmsUser::class);
@@ -884,7 +887,7 @@ class ClassMetadataTest extends OrmTestCase
         $cm->setAssociationOverride('parentDirectory', ['cascade' => ['all']]);
 
         $mapping = $cm->getAssociationMapping('parentDirectory');
-        self::assertSame(['remove', 'persist', 'refresh', 'detach'], $mapping['cascade']);
+        self::assertSame(['remove', 'persist', 'refresh', 'detach'], $mapping->cascade);
     }
 
     #[TestGroup('DDC-1955')]

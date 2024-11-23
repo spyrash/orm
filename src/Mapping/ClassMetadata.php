@@ -874,10 +874,7 @@ class ClassMetadata implements PersistenceClassMetadata, Stringable
     {
         $this->reflClass = $reflService->getClass($this->name);
         $this->namespace = $reflService->getClassNamespace($this->name);
-
-        if ($this->reflClass) {
-            $this->name = $this->rootEntityName = $this->reflClass->name;
-        }
+        $this->name      = $this->rootEntityName = $this->reflClass->name;
 
         $this->table['name'] = $this->namingStrategy->classToTableName($this->name);
     }
