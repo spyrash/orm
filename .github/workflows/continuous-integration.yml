@@ -111,7 +111,7 @@ jobs:
         dbal-version:
           - "default"
         postgres-version:
-          - "15"
+          - "17"
         extension:
           - pdo_pgsql
           - pgsql
@@ -337,7 +337,7 @@ jobs:
           path: "reports"
 
       - name: "Upload to Codecov"
-        uses: "codecov/codecov-action@v4"
+        uses: "codecov/codecov-action@v5"
         with:
           directory: reports
         env:
