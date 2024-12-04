@@ -3486,7 +3486,11 @@ EXCEPTION
      */
     public function size()
     {
-        return array_sum(array_map('count', $this->identityMap));
+        $totalSize = 0;
+        foreach ($this->identityMap as $entitiesByClass) {
+            $totalSize += count($entitiesByClass);
+        }
+        return $totalSize;
     }
 
     /**
