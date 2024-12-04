@@ -56,9 +56,7 @@ use function array_combine;
 use function array_diff_key;
 use function array_filter;
 use function array_key_exists;
-use function array_map;
 use function array_merge;
-use function array_sum;
 use function array_values;
 use function assert;
 use function current;
@@ -3486,7 +3484,11 @@ EXCEPTION
      */
     public function size()
     {
-        return array_sum(array_map('count', $this->identityMap));
+        $totalSize = 0;
+        foreach ($this->identityMap as $entitiesByClass) {
+            $totalSize += count($entitiesByClass);
+        }
+        return $totalSize;
     }
 
     /**
